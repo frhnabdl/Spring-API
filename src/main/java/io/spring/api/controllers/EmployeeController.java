@@ -89,4 +89,15 @@ public class EmployeeController {
         } 
     }
 
+    // test merubah code untuk cek ke git
+    @DeleteMapping("employeee/{id}")
+    public ResponseEntity<Object> deleteOptional(@PathVariable(required = true) Integer id){        
+        Boolean result = iEmployeeService.Delete(id);
+        if(result){
+            return ResponseHandler.generateResponse("data berhasi terhapus", HttpStatus.OK);
+        }else{
+            return ResponseHandler.generateResponse("data gagal terhapus", HttpStatus.BAD_REQUEST);
+        } 
+    }
+
 }
